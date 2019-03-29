@@ -14,7 +14,7 @@
                 <p><strong (click)="showdesc('repo'+repo['id'])">{{repo['name']}}</strong></p>
                 <div class="repodesc" id="repo{{repo['id']}}">
                     <h4>{{repo['description']}}</h4>
-                    <h5>Created on {{repo['created_at']</h5>
+                    <h5>Created on {{repo['created_at'] | dateformat}}</h5>
                     <h5>Language : {{repo['language']}}</h5>
                     <h5><a href="{{repo['html_url']}}" target="_blank">Link</a></h5>
                 </div>

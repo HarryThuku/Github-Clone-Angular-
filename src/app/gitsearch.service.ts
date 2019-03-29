@@ -12,13 +12,13 @@ export class GitsearchService {
 
 
   getusers(search){
-    let link = `https://api.github.com/search/users?q='${search}'&access_token=${this.apikey}`
+    let link = `https://api.github.com/search/users?q=${search}&access_token=${this.apikey}`
 
     return new Promise((resolve,reject)=>{
       this.http.get<JSON>(link).toPromise().then(response=>{
         resolve(response)
       }, error =>{
-        reject()
+        reject(error)
       });
     });
   }
@@ -31,7 +31,7 @@ export class GitsearchService {
         this.http.get<JSON> (link).toPromise().then(response => {
             resolve(response)
           }, error => {
-            reject()
+            reject(error)
           }
         );
       }
@@ -44,7 +44,7 @@ export class GitsearchService {
         this.http.get<JSON[]>(`${link}?access_token=${this.apikey}`).toPromise().then(response => {
             resolve(response)
           }, error => {
-            reject()
+            reject(error)
           }
         );
       }
@@ -58,7 +58,7 @@ export class GitsearchService {
         this.http.get<JSON[]>(`https://api.github.com/users/${username}?access_token=${this.apikey}`).toPromise().then(response => {
             resolve(response)
           }, error => {
-            reject()
+            reject(error)
           }
         );
       }
