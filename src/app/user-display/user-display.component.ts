@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import {User} from '../user'
+import {GitsearchService} from '../gitsearch.service'
+
 
 @Component({
   selector: 'app-user-display',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDisplayComponent implements OnInit {
 
+  @Input() currentuser:JSON;
+  user:User;
   constructor() { }
 
   ngOnInit() {
+    this.user = new User(this.currentuser);
   }
-
 }

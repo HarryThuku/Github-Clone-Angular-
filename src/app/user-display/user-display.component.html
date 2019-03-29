@@ -1,3 +1,8 @@
-<p>
-  user-display works!
-</p>
+<div class="col-sm-6 col-md-4 col-lg-3 result">
+  <div class="thumbnail">
+      <img src="{{user.image}}}" alt="{{user.login}}" class="avatar">
+      <div class="caption">
+          <a [routerLink]="['/user', user.login]"><h3>{{user.login}}</h3></a>
+      </div>
+  </div>
+</div>

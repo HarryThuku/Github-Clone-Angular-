@@ -1,3 +1,12 @@
-<p>
-  user-search works!
-</p>
+<router-outlet></router-outlet>
+<form (ngSubmit)="search()" class="form-inline srch" autocomplete="off">
+    <input class="form-control inp" placeholder="Username" name="newname" [(ngModel)]="this.searchstring">
+    <button class="btn btn-primary glyphicon glyphicon-search btsearch" type="submit"></button>
+</form>
+<div class="container">
+    <div class="row">
+        <div *ngFor="let result of results">
+            <app-user-display [currentuser]="result"></app-user-display>
+        </div>
+    </div>
+</div>

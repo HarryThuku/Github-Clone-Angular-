@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GitsearchService} from '../gitsearch.service'
 
 @Component({
   selector: 'app-user-search',
@@ -7,8 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserSearchComponent implements OnInit {
 
-  constructor() { }
+  searchstring = '';
+  results = [];
 
+  constructor( private searchservice: GitsearchService) { }
+
+  search(){
+    this.searchservice.getusers(this.searchstring).then((data :JSON)=>{
+      this.results=data['items'];
+    })
+  }
+  
   ngOnInit() {
   }
 

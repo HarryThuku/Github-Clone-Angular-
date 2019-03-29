@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../environments/environment';
 import {HttpClient} from '@angular/common/http'
-import { resolve } from 'url';
-import { reject } from 'q';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +31,6 @@ export class GitsearchService {
         this.http.get<JSON> (link).toPromise().then(response => {
             resolve(response)
           }, error => {
-            console.log(error);
             reject()
           }
         );
@@ -47,7 +44,6 @@ export class GitsearchService {
         this.http.get<JSON[]>(`${link}?access_token=${this.apikey}`).toPromise().then(response => {
             resolve(response)
           }, error => {
-            console.log(error);
             reject()
           }
         );
@@ -62,7 +58,6 @@ export class GitsearchService {
         this.http.get<JSON[]>(`https://api.github.com/users/${username}?access_token=${this.apikey}`).toPromise().then(response => {
             resolve(response)
           }, error => {
-            console.log(error);
             reject()
           }
         );
