@@ -1,27 +1,25 @@
 <router-outlet></router-outlet>
-<div>
-    <form (ngSubmit)="search()" class="form-inline row" autocomplete="off">
-        
-
-
-        <div class="input-group mb-3">
-            <input name="newname" class="form-control" placeholder="Enter user name..." [(ngModel)]="this.searchstring">
+<div class="c-header">
+    <span><strong>FIND USER</strong></span>
+</div>
+<hr>
+<div class='center'>
+    <form (ngSubmit)="search()" class="form-inline row positioning" autocomplete="off">
+        <div class="input-group mb-3 center">
             <div class="input-group-prepend">
-                <button class="btn btn-outline-primary" type="submit">Search</button>  
+                <span class="input-group-text">@</span>
             </div>
-            
+            <input name = 'newname' class="form-control" placeholder="Enter user name . . ." [(ngModel)]="this.searchstring">
+            <div class="input-group-append">
+                <button class="btn btn-success" type="submit">Go</button>  
+            </div>
         </div>
-
-
-
-
-
     </form>
 
 </div>
+<hr>
 
-
-<ul class="container">
+<ul class="container center">
     <div class="row">
         <div *ngFor="let result of results">
             <app-user-display [currentuser]="result"></app-user-display>

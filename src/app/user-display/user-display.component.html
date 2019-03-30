@@ -1,8 +1,9 @@
-<div class="card" style="width:400px">
+<div class="card" style="width:400px; margin:20px;">
   <img class="card-img-top" src="{{user.image}}" alt="{{user.login}}" style="width:100%">
   <div class="card-body">
-    <h4 class="card-title">{{user.login}}</h4>
-    <p class="card-text">{{user.description}}</p>
+    <h5 class="card-title">Alias: {{user.login}}</h5>
+    <br><hr>
+    <p class="card-text">Score: {{user.score}}</p>
     <a href="#" [routerLink]="['/user', user.login]" class="btn btn-primary">See Profile</a>
   </div>
 </div>

@@ -39,9 +39,9 @@ export class GitsearchService {
   }
   
   
-  fetchrepos(link){
+  fetchrepos(myReposLink){
     return new Promise((resolve,reject)=> {
-        this.http.get<JSON[]>(`${link}?access_token=${this.apikey}`).toPromise().then(response => {
+        this.http.get<JSON[]>(`${myReposLink}?access_token=${this.apikey}`).toPromise().then(response => {
             resolve(response)
           }, error => {
             reject(error)
@@ -53,12 +53,12 @@ export class GitsearchService {
 
 
 
-  fetchuserinfo(username){
+  fetchuserinfo(uname){
     return new Promise((resolve,reject)=> {
-        this.http.get<JSON[]>(`https://api.github.com/users/${username}?access_token=${this.apikey}`).toPromise().then(response => {
+        this.http.get<JSON[]>(`https://api.github.com/users/${uname}?access_token=${this.apikey}`).toPromise().then(response => {
             resolve(response)
           }, error => {
-            reject(error)
+            reject(error);
           }
         );
       }
