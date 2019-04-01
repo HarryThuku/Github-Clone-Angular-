@@ -1,7 +1,7 @@
 <router-outlet></router-outlet>
 <div class="row">
     <div *ngIf="this.user" class="col-xs-10">
-        <div class="card">
+        <div class="card" style="width:400px; margin:20px;">
             <img class="pull-left col-xs-12 col-md-6 col-lg-3"  src="{{this.user.image}}">
         </div>
         <div class="col-xs-12 col-md-6 col-lg-9 row">
@@ -9,17 +9,39 @@
                 <div class="label label-warning">Followers: {{user.info['followers']}}</div>
                 <div class="label label-success">Following: {{user.info['following']}}</div>
             </div>
-            <h2><strong *ngIf="this.user.info['name']">{{this.user.info['name']}} | </strong><strong>{{this.login}}</strong></h2>
+            <h2><strong *ngIf="this.user.info['name']">{{this.user.info['name']}}</strong></h2>
             <h4>{{this.user.info['bio']}}</h4>
-            <div *ngFor="let repo of user.repos" class="col-xs-6">
-                <p><strong (click)="showdesc('repo'+repo['id'])">{{repo['name']}}</strong></p>
-                <div class="repodesc" id="repo{{repo['id']}}">
+            <div *ngFor="let repo of user.repos" class="card" style="width:400px; margin:20px;">
+                <div class="card-header">
+                    <span><strong>{{repo['name']}}</strong></span>
+                </div>
+                <div class="card-body" id="repo{{repo['id']}}">
                     <h4>{{repo['description']}}</h4>
                     <h5>Created on {{repo['created_at'] | dateformat}}</h5>
                     <h5>Language : {{repo['language']}}</h5>
-                    <h5><a href="{{repo['html_url']}}" target="_blank">Link</a></h5>
+                <div class="card-footer">
+                    <a href="{{repo['html_url']}}" target="_blank" class="btn btn-success">View on Github</a>
+                </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<!-- 
+
+
+<div class="card" style="width:400px; margin:20px;">
+    <div class="card-header">
+      <span><strong>{{this.repository.name}}</strong></span>
+    </div>
+    <div class="card-body">
+      <h4>{{this.repository.description}}</h4>
+      <h5>Owner: {{this.repository.owner.login}}</h5>
+      <h5 *ngIf="this.repository.lang">Language: {{this.repository.lang}}</h5>
+    </div>
+    <div class="card-footer">
+      <a href="{{this.repository.link}}" target="_blank" class="btn btn-primary" >View on Github</a>
+    </div>
+  </div> -->

@@ -1,11 +1,13 @@
-<div class="panel repores panel-default">
-  <div class="panel-heading">
-      <span class="panel-title"><strong>{{this.repository.name}}</strong></span>
+<div class="card" style="width:400px; margin:20px;">
+  <div class="card-header">
+    <span><strong>{{this.repository.name}}</strong></span>
   </div>
-  <div class="panel-body">
-      <h4>{{this.repository.description}}</h4>
-      <h5>Owner: {{this.repository.owner.login}}</h5>
-      <h5 *ngIf="this.repository.lang">Language: {{this.repository.lang}}</h5>
-      <h5><a href="{{this.repository.link}}" target="_blank">Link</a></h5>
+  <div class="card-body">
+    <h4>{{this.repository.description}}</h4>
+    <h5>Owner: {{this.repository.owner.login}}</h5>
+    <h5 *ngIf="this.repository.lang">Language: {{this.repository.lang}}</h5>
+  </div>
+  <div class="card-footer">
+    <a href="{{this.repository.link}}" target="_blank" class="btn btn-primary" >View on Github</a>
   </div>
 </div>

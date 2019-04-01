@@ -53,9 +53,9 @@ export class GitsearchService {
 
 
 
-  fetchuserinfo(uname){
+  fetchuserinfo(username){
     return new Promise((resolve,reject)=> {
-        this.http.get<JSON[]>(`https://api.github.com/users/${uname}?access_token=${this.apikey}`).toPromise().then(response => {
+        this.http.get<JSON[]>(`https://api.github.com/users/${username}?access_token=${this.apikey}`).toPromise().then(response => {
             resolve(response)
           }, error => {
             reject(error);
@@ -65,4 +65,6 @@ export class GitsearchService {
     );
   }
 
+
+  
 }
